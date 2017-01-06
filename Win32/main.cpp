@@ -14,6 +14,10 @@
 using namespace Gdiplus;
 #pragma comment (lib, "Gdiplus.lib")
 
+/**
+*  enum Figure
+* Used to define which figure to draw
+*/
 enum Figure
 {
 	None,
@@ -23,7 +27,10 @@ enum Figure
 	Triangle
 };
 
-
+/**
+* Fonction OnPaint test
+* Used for test purposes
+*/
 VOID OnPaint(HDC hdc)
 {
 	Graphics graphics(hdc);
@@ -33,6 +40,12 @@ VOID OnPaint(HDC hdc)
 	graphics.Clear(Color(240, 240, 240));
 }
 
+/**
+* function drawRect
+* Used to draw a rectangle
+*@param hdc
+*@param color define the color of the figure
+*/
 VOID drawRect(HDC hdc, Color color)
 {
 	Graphics graphics(hdc);
@@ -42,6 +55,12 @@ VOID drawRect(HDC hdc, Color color)
 	graphics.DrawRectangle(&pen, rectangle);
 }
 
+/**
+* function drawCercle
+* Used to draw a circle
+*@param hdc
+*@param color define the color of the figure
+*/
 VOID drawCercle(HDC hdc, Color color)
 {
 	Graphics graphics(hdc);
@@ -51,6 +70,12 @@ VOID drawCercle(HDC hdc, Color color)
 	graphics.DrawArc(&pen, rectangle, 0, 360);
 }
 
+/**
+* function drawTriangle
+* Used to draw a triangle
+*@param hdc
+*@param color define the color of the figure
+*/
 VOID drawTriangle(HDC hdc, Color color)
 {
 	Graphics graphics(hdc);
@@ -61,6 +86,12 @@ VOID drawTriangle(HDC hdc, Color color)
 	graphics.DrawLine(&pen, 90, 80, 40, 180);
 }
 
+/**
+* function drawCross
+* Used to draw a cross
+*@param hdc
+*@param color define the color of the figure
+*/
 VOID drawCross(HDC hdc, Color color)
 {
 	Graphics graphics(hdc);
@@ -70,6 +101,14 @@ VOID drawCross(HDC hdc, Color color)
 	graphics.DrawLine(&pen, 40, 180, 140, 80);
 }
 
+/**
+* function WndProc
+* Handle the events of the application
+*@param hwnm
+*@param message
+*@param wParam
+*@param lParam
+*/
 BOOL CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	PAINTSTRUCT paintStruct;
@@ -230,6 +269,15 @@ BOOL CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	return 0;
 }
 
+/**
+* function WndProc
+* Handle the events of the application
+*@param hInstance
+*@param hPrevInstance
+*@param lpCmdLine
+*@param nCmdShow
+*@return if no problem (int)msg.wParam else 1
+*/
 int WINAPI WinMain( HINSTANCE hInstance,  HINSTANCE hPrevInstance,  LPSTR lpCmdLine,  int nCmdShow)
 {
 	GdiplusStartupInput gdiplusStartupInput;
